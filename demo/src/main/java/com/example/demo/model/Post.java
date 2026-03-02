@@ -1,12 +1,26 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+
+import javax.annotation.processing.Generated;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
+@Entity
+public class Post implements Serializable {
     private String text;
     private Integer likes;
     private Date creationDate;
+
+    @Id
+    @GeneratedValue
     private Long id;
+
+    public Post() {}
 
     public Post(Long id, String text, Date date) {
         this.text = text;
